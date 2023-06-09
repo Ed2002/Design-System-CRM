@@ -1,4 +1,5 @@
 import { BreadCrumbsLinks } from "./components/BreadCrumbs/types"
+import { LoadButton } from "./components/Buttons/LoadButton";
 import { Menu } from "./components/Menu";
 import { ItemMenu } from "./components/Menu/types"
 import { Page } from "./components/Page"
@@ -34,6 +35,8 @@ function App() {
     <Menu MenuItems={MenuLinks}>
       <Page Title="App" BreadCrumb={Bread}>
         <h3>Página App</h3>
+        <LoadButton name="teste" title="My Btn" size="large" variant="contained"/>
+        <LoadButton name="teste" title="My Btn" size="large" variant="outlined"/>
       </Page>
     </Menu>
   )
