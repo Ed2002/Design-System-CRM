@@ -5,6 +5,7 @@ import { ItemMenu } from "./components/Menu/types"
 import { Page } from "./components/Page"
 import HomeIcon from '@mui/icons-material/Home';
 import PaymentIcon from '@mui/icons-material/Payment';
+import { Table, TBody, THead, Th, Tr, Td } from "./components/Table";
 
 const MenuLinks:Array<ItemMenu> = [
   {
@@ -35,8 +36,24 @@ function App() {
     <Menu MenuItems={MenuLinks}>
       <Page Title="App" BreadCrumb={Bread}>
         <h3>Página App</h3>
-        <LoadButton name="teste" title="My Btn" size="large" variant="contained"/>
-        <LoadButton name="teste" title="My Btn" size="large" variant="outlined"/>
+        <Table>
+          <THead>
+            <tr>
+              <Th>Id</Th>
+              <Th>Name</Th>
+            </tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>1</Td>
+              <Td>My Name</Td>
+            </Tr>
+            <Tr>
+              <Td>2</Td>
+              <Td>My Name</Td>
+            </Tr>
+          </TBody>
+        </Table>
       </Page>
     </Menu>
   )
