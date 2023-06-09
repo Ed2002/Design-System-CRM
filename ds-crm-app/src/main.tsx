@@ -6,16 +6,11 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Teste } from './Teste.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-  },
-  {
-    path: "/teste",
-    element: <Teste/>,
   },
 ]);
 
