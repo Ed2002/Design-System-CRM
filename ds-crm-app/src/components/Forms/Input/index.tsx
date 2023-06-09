@@ -33,6 +33,7 @@ export const Input = ({ name, ...rest }: InputProps)=>{
         <TextField
             name="name"
             color="success"
+            style={{backgroundColor: 'white'}}
             error={!!error}
             helperText={error || ''}
             defaultValue={defaultValue}

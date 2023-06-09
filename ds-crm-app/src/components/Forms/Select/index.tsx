@@ -37,7 +37,7 @@ export const SelectInput = ({name,label,children,...rest}:InputSelectProps) => {
     return(
         <FormControl fullWidth>
             <InputLabel color="success" id={`idLabel-${name}`}>{label}</InputLabel>
-            <Select color="success" name={name} label={label} labelId={`idLabel-${name}`} {...rest} inputRef={InputRef} fullWidth defaultValue={defaultValue}>
+            <Select style={{backgroundColor: 'white'}} color="success" name={name} label={label} labelId={`idLabel-${name}`} {...rest} inputRef={InputRef} fullWidth defaultValue={defaultValue}>
                 {children}
             </Select>
         </FormControl>
