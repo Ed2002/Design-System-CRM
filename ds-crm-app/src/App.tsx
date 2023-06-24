@@ -10,10 +10,11 @@ import { Card } from "./components/Card";
 import { Form } from "@unform/web";
 import { FormHandles } from '@unform/core';
 import { Input } from "./components/Forms/Input";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { SelectInput } from "./components/Forms/Select";
 import { MenuItem } from "@mui/material";
 import { InputCheckBox } from "./components/Forms/CheckBox";
+import { Modal } from "./components/Modal";
 
 const MenuLinks:Array<ItemMenu> = [
   {
@@ -33,6 +34,9 @@ const MenuLinks:Array<ItemMenu> = [
 function App() {
   const formRef = useRef<FormHandles>(null);
 
+  const [ModalTeste, SetModalTeste] = useState<boolean>(false);
+
+
   const Bread:BreadCrumbsLinks = {
     CurrentTitle: "App",
     Pass: [
@@ -43,6 +47,13 @@ function App() {
     ]
 }
 
+const handleOpenModal = () => {
+  SetModalTeste(true);
+};
+const handleCloseModal = () => {
+  SetModalTeste(false);
+};
+
 const handleData = (data:any) => {
   console.log(data);
 }
@@ -50,6 +61,9 @@ const handleData = (data:any) => {
   return (
     <Menu MenuItems={MenuLinks}>
       <Page Title="App" BreadCrumb={Bread}>
+        <Modal Title="Teste Modal" Close={handleCloseModal} open={ModalTeste} SubTitle="Teste" maxWidth="md" fullScreen>
+          <p>My Modal</p>
+        </Modal>
         <Form onSubmit={handleData} ref={formRef}>
           <Input name="name" placeholder="Seu Nome..." label="Nome" variant="outlined"/>
           <SelectInput name="tipo" variant="outlined" label="Tipo">
@@ -58,10 +72,14 @@ const handleData = (data:any) => {
           </SelectInput>
           <InputCheckBox label="lgpd" name="lgpd"/>
           <LoadButton name="sub" title="Enviar" type="submit"/>
+          <LoadButton onClick={e => {
+            e.preventDefault();
+            handleOpenModal();
+          }} name="a" title="Abrir Modal" type="button"/>
         </Form>
       </Page>
     </Menu>
   )
 }
 
-export default App
+export default App;
