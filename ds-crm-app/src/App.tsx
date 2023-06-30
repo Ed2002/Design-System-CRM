@@ -15,6 +15,7 @@ import { SelectInput } from "./components/Forms/Select";
 import { MenuItem } from "@mui/material";
 import { InputCheckBox } from "./components/Forms/CheckBox";
 import { Modal } from "./components/Modal";
+import { Pag, Pagination } from "./components/Pagination";
 
 const MenuLinks:Array<ItemMenu> = [
   {
@@ -77,6 +78,7 @@ const handleData = (data:any) => {
             handleOpenModal();
           }} name="a" title="Abrir Modal" type="button"/>
         </Form>
+        <Pag Count={10} onChange={(e:any) => {alert(e.target.textContent)}}/>
       </Page>
     </Menu>
   )
